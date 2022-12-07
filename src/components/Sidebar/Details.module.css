@@ -1,0 +1,84 @@
+.container {
+  margin-right: var(--sidebar-padding);
+}
+
+.main-p {
+  margin: 2rem 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.info-p {
+  font-size: 1.3rem;
+  margin: 2rem 1rem;
+  opacity: 0.7;
+}
+
+.error {
+  color: red;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.25rem;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  font-weight: 500;
+}
+
+.infoName {
+  opacity: 75%;
+}
+
+.infoVal {
+  display: flex;
+  max-width: 60%;
+  text-align: right;
+  align-items: center;
+  gap: 1rem;
+}
+
+.infoVal img {
+  width: 25px;
+}
+
+.shw-btn {
+  border-radius: 100vw;
+  padding: 0.6rem 1rem;
+  background-color: var(--main-theme);
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  border: none;
+}
+
+.more {
+  overflow-y: clip;
+  padding-bottom: 1rem;
+}
+.more-enter {
+  max-height: 0;
+}
+.more-enter-active {
+  max-height: 600px;
+  transition: 0.5s;
+}
+.more-exit {
+  max-height: 600px;
+}
+.more-exit-active {
+  max-height: 0;
+  transition: 0.5s;
+}
+
+@media (max-width: 500px) {
+  .info {
+    font-size: 1rem;
+    margin: 1rem 0;
+  }
+}

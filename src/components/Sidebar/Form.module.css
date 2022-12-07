@@ -1,0 +1,53 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  position: relative;
+}
+
+.location-input {
+  width: calc(100% - 120px - var(--sidebar-padding));
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid hsla(0, 100%, 100%, 30%);
+  padding: 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.location-input::placeholder {
+  color: hsla(0, 100%, 100%, 50%);
+  font-size: 1.2rem;
+}
+
+.location-input:focus {
+  outline: none;
+}
+
+.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  background-color: var(--main-theme);
+  border: none;
+  cursor: pointer;
+}
+
+.submit-btn img {
+  width: 50%;
+}
+
+.error {
+  position: absolute;
+  bottom: 35%;
+  color: red;
+  max-width: 65%;
+}
+
+@media (max-width: 950px) {
+  .error {
+    font-size: 0.8rem;
+  }
+}

@@ -1,26 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Navigate, Outlet, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Layout from "./components/layout/Layout";
+import LoadingSpinner from "./components/UI/LoadingSpinner";
+import WeatherContextProvider from "./context/weather-context";
+import Current from "./pages/Current";
 
-function App() {
+const Minutely = React.lazy(() => import("./pages/Minutely"));
+const Hourly = React.lazy(() => import("./pages/Hourly"));
+const Daily = React.lazy(() => import("./pages/Daily"));
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <WeatherContextProvider>
+      <Routes>
+        <Route
+          path="/:latlng/"
+          element={
+            <Layout>
+              <Outlet />
+            </Layout>
+          }
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Route path="current" element={<Current />} />
+          <Route
+            path="minutely"
+            element={
+              <React.Suspense fallback={<LoadingSpinner size={1} />}>
+                <Minutely />
+              </React.Suspense>
+            }
+          />
+          <Route
+            path="hourly"
+            element={
+              <React.Suspense fallback={<LoadingSpinner size={1} />}>
+                <Hourly />
+              </React.Suspense>
+            }
+          />
+          <Route
+            path="daily"
+            element={
+              <React.Suspense fallback={<LoadingSpinner size={1} />}>
+                <Daily />
+              </React.Suspense>
+            }
+          />
+          <Route path="*" element={<Navigate to="current" />} />
+          <Route path="" element={<Navigate to="current" />} />
+        </Route>
+        <Route path="" element={<Layout></Layout>}></Route>
+      </Routes>
+    </WeatherContextProvider>
   );
-}
+};
 
 export default App;

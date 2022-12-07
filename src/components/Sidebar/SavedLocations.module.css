@@ -1,0 +1,152 @@
+.container {
+  margin-top: 3rem;
+  margin-right: var(--sidebar-padding);
+  border-bottom: 1px solid hsla(0, 100%, 100%, 30%);
+  position: relative;
+}
+
+.location {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+  font-weight: 500;
+}
+
+.cityName {
+  font-size: 1.2rem;
+  text-decoration: none;
+  opacity: 50%;
+}
+
+.active {
+  opacity: 1;
+}
+
+.location:hover .cityName.active + img {
+  opacity: 1;
+}
+
+.location:focus-within .cityName.active + img {
+  opacity: 1;
+}
+
+.location img {
+  width: 15px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.location:hover img {
+  opacity: 50%;
+}
+.location:focus-within img {
+  opacity: 50%;
+}
+
+.shw-btn {
+  border-radius: 100vw;
+  padding: 0.6rem 1rem;
+  background-color: var(--main-theme);
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  border: none;
+}
+
+.error {
+  position: absolute;
+  text-align: center;
+  right: calc(-1 * var(--sidebar-padding));
+  background-color: rgba(255, 1, 1, 0.5);
+  backdrop-filter: var(--main-backdrop);
+  padding: 0.5rem 1rem;
+  border-radius: 0.7rem 0 0 0.7rem;
+  color: white;
+  font-weight: 500;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.progress {
+  position: absolute;
+  bottom: 1px;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 1px;
+  animation: progressBar 7s linear;
+}
+
+@keyframes progressBar {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+.error-enter {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.error-enter-active {
+  transform: translateX(0px);
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.error-exit {
+  transform: translateX(0px);
+  opacity: 1;
+}
+
+.error-exit-active {
+  transform: translateX(100%);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.more {
+  overflow-y: clip;
+}
+.more-enter {
+  max-height: 0;
+}
+.more-enter-active {
+  max-height: 400px;
+  transition: 0.5s;
+}
+.more-exit {
+  max-height: 400px;
+}
+.more-exit-active {
+  max-height: 0;
+  transition: 0.5s;
+}
+
+.small {
+  font-size: 0.7rem;
+  vertical-align: middle;
+}
+
+@media (pointer: coarse) {
+  .location img {
+    opacity: 50%;
+  }
+
+  .location .cityName.active + img {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 500px) {
+  .cityName {
+    font-size: 1rem;
+  }
+}

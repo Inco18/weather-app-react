@@ -1,0 +1,129 @@
+.container {
+  --size: 1;
+  background-color: var(--main-bg);
+  width: fit-content;
+  padding: calc(var(--size) * 0.7rem);
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto auto auto;
+  gap: calc(var(--size) * 1.5rem);
+  backdrop-filter: var(--main-backdrop);
+  border-radius: 1rem;
+}
+
+.temperature {
+  font-family: "Lato";
+  font-size: calc(var(--size) * 7rem);
+  line-height: 0.8;
+}
+
+.location {
+  font-family: "Montserrat";
+  font-size: calc(var(--size) * 4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.location span {
+  font-size: calc(var(--size) * 2.5rem);
+  font-weight: 300;
+}
+
+.date {
+  text-align: center;
+  font-weight: 300;
+  font-size: calc(var(--size) * 1.2rem);
+}
+
+.weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+.weather img {
+  min-width: calc(var(--size) * 60px);
+  min-height: calc(var(--size) * 60px);
+  max-width: calc(var(--size) * 60px);
+  max-height: calc(var(--size) * 60px);
+}
+.weather p {
+  font-weight: 300;
+  font-size: calc(var(--size) * 1.2rem);
+}
+
+@media (max-width: 1400px) {
+  .container {
+    padding: calc(var(--size) * 0.3rem);
+    gap: calc(var(--size) * 0.7rem);
+  }
+
+  .temperature {
+    font-size: calc(var(--size) * 5rem);
+  }
+
+  .location {
+    font-size: calc(var(--size) * 2.5rem);
+  }
+
+  .location span {
+    font-size: calc(var(--size) * 1.5rem);
+  }
+
+  .date {
+    font-size: calc(var(--size) * 1rem);
+  }
+
+  .weather img {
+    min-width: calc(var(--size) * 40px);
+    min-height: calc(var(--size) * 40px);
+    max-width: calc(var(--size) * 40px);
+    max-height: calc(var(--size) * 40px);
+  }
+
+  .weather p {
+    font-size: calc(var(--size) * 0.9rem);
+  }
+}
+
+@media (max-width: 950px) {
+  .container {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    justify-items: center;
+    padding: calc(var(--size) * 1rem);
+  }
+
+  .location {
+    font-size: calc(var(--size) * 2rem);
+  }
+
+  .location span {
+    font-size: calc(var(--size) * 1.5rem);
+    font-weight: 300;
+  }
+
+  .temperature {
+    grid-row: 2/3;
+  }
+
+  .weather {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .weather img {
+    min-width: calc(var(--size) * 60px);
+    min-height: calc(var(--size) * 60px);
+    max-width: calc(var(--size) * 60px);
+    max-height: calc(var(--size) * 60px);
+  }
+  .weather p {
+    font-weight: 300;
+    font-size: calc(var(--size) * 1.2rem);
+  }
+}

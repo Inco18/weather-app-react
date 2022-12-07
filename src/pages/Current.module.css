@@ -1,0 +1,27 @@
+.main {
+  display: flex;
+  padding: 4rem;
+  align-items: flex-end;
+}
+
+.error {
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+  color: red;
+}
+
+@media (max-width: 1400px) {
+  .main {
+    padding: 4rem 2rem;
+  }
+}
+
+@media (max-width: 950px) {
+  .main {
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+}

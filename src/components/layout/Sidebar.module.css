@@ -1,0 +1,16 @@
+.sidebar-div {
+  grid-area: sidebar;
+  background-color: var(--main-bg);
+  backdrop-filter: var(--main-backdrop);
+  padding: 0 0 0 var(--sidebar-padding);
+  position: relative;
+}
+
+@media (max-width: 950px) {
+  .sidebar-div {
+    background-color: #181818;
+    padding: 0 0 1rem var(--sidebar-padding);
+    min-height: 30rem;
+    height: fit-content;
+  }
+}
