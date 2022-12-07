@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import clear from "../assets/images/clear.jpg";
-import clearNight from "../assets/images/clear-night.jpg";
-import thunderstorm from "../assets/images/thunderstorm.jpg";
-import drizzle from "../assets/images/drizzle.jpg";
-import rain from "../assets/images/rain.jpg";
+import clearNight from "../assets/images/clear-night.webp";
+import thunderstorm from "../assets/images/thunderstorm.webp";
+import drizzle from "../assets/images/drizzle.webp";
+import rain from "../assets/images/rain.webp";
 import snow from "../assets/images/snow.jpg";
-import clouds from "../assets/images/clouds.jpg";
+import clouds from "../assets/images/clouds.webp";
 import mist from "../assets/images/mist.jpg";
-import squall from "../assets/images/squall.jpg";
-import tornado from "../assets/images/tornado.jpg";
+import squall from "../assets/images/squall.webp";
+import tornado from "../assets/images/tornado.webp";
 
 type WeatherContextType = {
   weatherData: any;
