@@ -82,7 +82,7 @@ select {
 }
 
 body {
-  background-image: url(assets/images/clear.jpg);
+  background: #121212;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
