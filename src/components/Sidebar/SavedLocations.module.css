@@ -70,6 +70,7 @@
   font-weight: 500;
   overflow: hidden;
   cursor: pointer;
+  z-index: 99999;
 }
 
 .progress {

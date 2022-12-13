@@ -38,6 +38,32 @@ const SavedLocations = () => {
 
     if (
       latlng &&
+      localStorageLastParsed &&
+      localStorageLastParsed.latlng === latlng
+    ) {
+      generalCtx.replaceGeocodingData({
+        fullPlaceName: localStorageLastParsed.fullPlaceName,
+        cityName: localStorageLastParsed.cityName,
+        countryNameLong: localStorageLastParsed.countryNameLong,
+        latlng: localStorageLastParsed.latlng,
+      });
+    } else if (
+      latlng &&
+      localStorageDataParsed &&
+      localStorageDataParsed.length > 0 &&
+      localStorageDataParsed.some((el: any) => el.latlng === params.latlng)
+    ) {
+      const locationInfo = localStorageDataParsed.find(
+        (el: any) => el.latlng === params.latlng
+      );
+      generalCtx.replaceGeocodingData({
+        fullPlaceName: locationInfo.fullPlaceName,
+        cityName: locationInfo.cityName,
+        countryNameLong: locationInfo.countryNameLong,
+        latlng: locationInfo.latlng,
+      });
+    } else if (
+      latlng &&
       (!localStorageDataParsed ||
         localStorageDataParsed.length < 1 ||
         !localStorageDataParsed.some(
@@ -46,6 +72,7 @@ const SavedLocations = () => {
         !localStorageLastParsed ||
         localStorageLastParsed.latlng !== latlng)
     ) {
+      console.log("123");
       const query =
         parseInt(latlng.split("_")[1]) && parseInt(latlng.split("_")[0])
           ? `${latlng.split("_")[1]},${latlng.split("_")[0]}`
@@ -109,22 +136,23 @@ const SavedLocations = () => {
               "There was a request setting error. Please contact website administrator."
             );
           }
+
+          if (
+            parseInt(latlng.split("_")[1]) &&
+            parseInt(latlng.split("_")[0]) &&
+            parseInt(latlng.split("_")[0]) >= -90 &&
+            parseInt(latlng.split("_")[0]) <= 90 &&
+            parseInt(latlng.split("_")[1]) >= -180 &&
+            parseInt(latlng.split("_")[1]) <= 180
+          ) {
+            generalCtx.replaceGeocodingData({
+              fullPlaceName: "",
+              cityName: "",
+              countryNameLong: "",
+              latlng: latlng,
+            });
+          }
         });
-    } else if (
-      latlng &&
-      (localStorageDataParsed ||
-        localStorageDataParsed.length > 0 ||
-        localStorageDataParsed.some((el: any) => el.latlng === params.latlng))
-    ) {
-      const locationInfo = localStorageDataParsed.find(
-        (el: any) => el.latlng === params.latlng
-      );
-      generalCtx.replaceGeocodingData({
-        fullPlaceName: locationInfo.fullPlaceName,
-        cityName: locationInfo.cityName,
-        countryNameLong: locationInfo.countryNameLong,
-        latlng: locationInfo.latlng,
-      });
     }
   }, []);
 
