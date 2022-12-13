@@ -85,7 +85,9 @@ const Details = () => {
               src={arrowImg}
               alt="wind direction"
               style={{
-                transform: `rotate(${weatherCtx.weatherData.current.wind_deg}deg)`,
+                transform: `rotate(${
+                  weatherCtx.weatherData.current.wind_deg + 180
+                }deg)`,
               }}
             />{" "}
             {generalCtx.units.wind === "kph"

@@ -114,8 +114,8 @@ const HourlyList = () => {
                   <div className={styles.wind}>
                     <img
                       src={arrow}
-                      style={{ transform: `rotate(${el.wind_deg}deg)` }}
-                      alt={`wind direction: ${el.wind_deg} degrees`}
+                      style={{ transform: `rotate(${el.wind_deg + 180}deg)` }}
+                      alt={`wind direction: ${el.wind_deg + 180} degrees`}
                     />
                     <p>
                       {generalCtx.units.wind === "kph"
